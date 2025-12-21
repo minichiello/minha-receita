@@ -1,0 +1,15 @@
+when:
+  - event: ["push"]
+    branch: ["*"]
+  - event: ["pull_request"]
+    branch: ["main"]
+engine: "nixery"
+dependencies:
+  nixpkgs:
+    - go
+    - golangci-lint
+environment:
+  GOEXPERIMENT: jsonv2
+steps:
+  - name: "Linter"
+    command: "golangci-lint run ./..."
