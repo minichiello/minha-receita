@@ -1,0 +1,14 @@
+when:
+  - event: ["push"]
+    branch: ["*"]
+  - event: ["pull_request"]
+    branch: ["main"]
+engine: "nixery"
+dependencies:
+  nixpkgs:
+    - go
+environment:
+  GOEXPERIMENT: jsonv2
+steps:
+  - name: "Check Go formatting"
+    command: "if [ \"$(gofmt -s -l . | wc -l)\" -gt 0 ]; then exit 1; fi"
