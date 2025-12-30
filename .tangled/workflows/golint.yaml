@@ -6,8 +6,8 @@ when:
 engine: "nixery"
 dependencies:
   nixpkgs:
-    - go@1.25.0
-    - golangci-lint@2.7.2
+    - go
+    - golangci-lint
 environment:
   GOEXPERIMENT: jsonv2
 steps:
