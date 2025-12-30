@@ -7,13 +7,12 @@ engine: "nixery"
 dependencies:
   nixpkgs:
     - go
+    - golangci-lint
 environment:
   GOEXPERIMENT: jsonv2
 steps:
   - name: "Check Go version"
     command: "go version"
-  - name: "Install the linter"
-    command: "curl -sSfL https://golangci-lint.run/install.sh | sh -s -- -b $(go env GOPATH)/bin v2.7.2"
   - name: "Check Go CI Lint version"
     command: "golangci-lint version"
   - name: "Linter"
